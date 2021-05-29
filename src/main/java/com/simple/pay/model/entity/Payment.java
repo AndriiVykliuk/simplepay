@@ -45,7 +45,7 @@ public class Payment {
     private String cardNumber;
 
     @Column(name = "card_suffix", nullable = false)
-    private Integer cardSuffix;
+    private String cardSuffix;
 
     @Convert(converter = FieldEncryptor.class)
     @Column(nullable = false)

@@ -10,9 +10,16 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class PayResponseDto {
+public class ResponseDto {
 
     private boolean approved;
-    private Map<String, String> errors = new HashMap<>();
+    private Map<String, Object> errors = new HashMap<>();
 
+    public ResponseDto() {
+        approved = true;
+    }
+
+    public ResponseDto(Map<String, Object> errors) {
+        this.errors = errors;
+    }
 }
