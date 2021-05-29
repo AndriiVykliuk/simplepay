@@ -10,7 +10,7 @@ import java.util.Map;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class PayResponse {
+public class PayResponseDto {
 
     private boolean approved;
     private Map<String, String> errors = new HashMap<>();
