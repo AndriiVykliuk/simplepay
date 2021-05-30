@@ -1,6 +1,7 @@
 package com.simple.pay.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,8 @@ import java.util.Map;
 public class ResponseDto {
 
     private boolean approved;
+
+    @JsonPropertyOrder(alphabetic = true)
     private Map<String, Object> errors = new HashMap<>();
 
     public ResponseDto() {

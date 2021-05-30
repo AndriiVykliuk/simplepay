@@ -37,7 +37,7 @@ public class Payment {
     private String cardHolderName;
 
     @Convert(converter = FieldEncryptor.class)
-    @Column(name = "card_holder_email")
+    @Column(name = "card_holder_email", nullable = false)
     private String cardHolderEmail;
 
     @Convert(converter = FieldEncryptor.class)
