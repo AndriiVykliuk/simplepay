@@ -3,6 +3,9 @@ package com.simple.pay.util;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.util.Strings;
 
+/**
+ * Sanitizes given string.
+ */
 public final class Sanitizer {
 
     private Sanitizer() {

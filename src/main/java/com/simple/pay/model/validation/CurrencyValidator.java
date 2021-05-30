@@ -4,6 +4,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Currency;
 
+/**
+ * Currency value validator, based on java.util.Currency supported values.
+ */
 public class CurrencyValidator implements ConstraintValidator<CurrencyConstraint, String> {
 
     @Override

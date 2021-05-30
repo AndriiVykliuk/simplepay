@@ -14,6 +14,9 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.stream.Stream;
 
+/**
+ * Service for audit business operations.
+ */
 @Slf4j
 @Service
 @PropertySource("classpath:application.properties")

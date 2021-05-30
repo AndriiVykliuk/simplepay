@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+/**
+ * REST API controller for access to audit archive.
+ */
 @RestController
 @RequestMapping(value = "/api/v1/audit/")
 public class AuditController {

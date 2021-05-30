@@ -8,6 +8,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation to mark a field as a valid currency.
+ */
 @NotNull
 @Constraint(validatedBy = CurrencyValidator.class)
 @Target({ElementType.FIELD})

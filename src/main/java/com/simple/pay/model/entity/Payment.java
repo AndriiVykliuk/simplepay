@@ -12,10 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "payment")
+/**
+ * Payment (transaction) entity, which matches given requirements for data which should bes stored.
+ */
 @Getter
 @Setter
+@Entity
+@Table(name = "payment")
 public class Payment {
 
     @Id

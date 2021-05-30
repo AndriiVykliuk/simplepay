@@ -7,6 +7,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Represents card holder information.
+ */
 @Getter
 @Setter
 public class CardHolder {

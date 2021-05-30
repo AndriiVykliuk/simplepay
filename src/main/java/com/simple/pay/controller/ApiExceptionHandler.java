@@ -1,4 +1,4 @@
-package com.simple.pay.controller.api;
+package com.simple.pay.controller;
 
 import com.simple.pay.exception.ServiceException;
 import com.simple.pay.model.dto.ResponseDto;
@@ -14,10 +14,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@ControllerAdvice
+/**
+ * Intercepts exceptions and processes expected ones to the desired shape.
+ */
 @Slf4j
+@ControllerAdvice
 public class ApiExceptionHandler {
 
+    /**
+     * Unexpected exception processing.
+     */
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<ResponseDto> handleRunTimeException(RuntimeException e) {
         log.error("Exception : ", e);
@@ -26,6 +32,9 @@ public class ApiExceptionHandler {
                 .body(new ResponseDto(Map.of("error", "internal server error")));
     }
 
+    /**
+     * Validation exception processing.
+     */
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<ResponseDto> handleRunTimeException(MethodArgumentNotValidException ex) {
         Map<String, Object> errors = ex.getBindingResult().getAllErrors()
@@ -40,6 +49,9 @@ public class ApiExceptionHandler {
                 .body(new ResponseDto(errors));
     }
 
+    /**
+     * Business exceptions processing.
+     */
     @ExceptionHandler({ServiceException.class})
     public ResponseEntity<ResponseDto> handleRunTimeException(ServiceException e) {
         log.error("Exception : ", e);

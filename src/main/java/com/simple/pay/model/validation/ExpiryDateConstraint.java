@@ -11,6 +11,9 @@ import java.lang.annotation.Target;
 
 import static com.simple.pay.model.validation.ExpiryDateValidator.EXPIRY_REGEX;
 
+/**
+ * Annotation to mark a field as a valid expiry date card value.
+ */
 @NotNull
 @Pattern(regexp = EXPIRY_REGEX, message = "The expiry should be 4 digits mmYY")
 @Constraint(validatedBy = ExpiryDateValidator.class)

@@ -5,6 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import javax.persistence.AttributeConverter;
 import java.util.Base64;
 
+/**
+ * JPA converter to automatically encode/decode sensitive data.
+ */
 public class FieldEncryptor implements AttributeConverter<String, String> {
 
     @Override

@@ -8,6 +8,9 @@ import lombok.Setter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Response format (for errors and transaction creation result).
+ */
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_EMPTY)

@@ -4,6 +4,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.time.LocalDate;
 
+/**
+ * The expiry date value validator.
+ */
 public class ExpiryDateValidator implements ConstraintValidator<ExpiryDateConstraint, String> {
 
     public static final String EXPIRY_REGEX = "^(1[0-2]|0[1-9])([0-9]{2})$";

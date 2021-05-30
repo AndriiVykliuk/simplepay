@@ -3,6 +3,9 @@ package com.simple.pay.model.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+/**
+ * Validates PAN using regex and Luhn algorithm.
+ */
 public class PANValidator implements ConstraintValidator<PANConstraint, String> {
 
     @Override

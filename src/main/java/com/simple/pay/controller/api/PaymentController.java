@@ -1,17 +1,14 @@
 package com.simple.pay.controller.api;
 
-import com.simple.pay.exception.ServiceException;
 import com.simple.pay.model.dto.PaymentDto;
 import com.simple.pay.model.dto.ResponseDto;
 import com.simple.pay.model.entity.Payment;
-import com.simple.pay.model.repo.PaymentRepository;
 import com.simple.pay.service.AuditService;
 import com.simple.pay.service.PaymentMapper;
 import com.simple.pay.service.PaymentService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,18 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/**
+ * REST API Controller for CRUD operations under invoices (Payments).
+ */
 @RestController
 @RequestMapping(value = "/api/v1/invoice/")
 public class PaymentController {
 
     @Autowired
-    private PaymentRepository paymentRepository;
-    @Autowired
     private PaymentService paymentService;
     @Autowired
-    private PaymentMapper paymentMapper;
-    @Autowired
     private AuditService auditService;
+    @Autowired
+    private PaymentMapper paymentMapper;
 
     @ApiOperation(value = "Retrieve a prior transaction by given Invoice number", response = PaymentDto.class)
     @ApiResponses({
@@ -44,11 +42,7 @@ public class PaymentController {
     })
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PaymentDto> getTransaction(@PathVariable("id") Integer invoice) {
-        Payment payment = paymentRepository.findByInvoice(invoice);
-        if (payment == null) {
-            throw new ServiceException(404, "Invoice not found by given number", invoice);
-        }
-        return ResponseEntity.ok(paymentMapper.toDto(payment));
+        return ResponseEntity.ok(paymentMapper.toDto(paymentService.getByInvoice(invoice)));
     }
 
     @ApiOperation(code = 201, value = "Submits a payment", response = ResponseDto.class)

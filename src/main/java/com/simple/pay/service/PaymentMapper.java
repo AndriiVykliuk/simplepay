@@ -7,6 +7,9 @@ import com.simple.pay.model.entity.Payment;
 import com.simple.pay.util.Sanitizer;
 import org.springframework.stereotype.Component;
 
+/**
+ * Provides the mapping between the Payment entity and PaymentDto.
+ */
 @Component
 public class PaymentMapper {
 

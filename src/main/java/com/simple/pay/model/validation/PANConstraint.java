@@ -9,6 +9,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation to mark a field as a valid card PAN value.
+ */
 @NotNull
 @Pattern(regexp = "[0-9]{16}", message = "PAN should be 16 digits long")
 @Constraint(validatedBy = PANValidator.class)
