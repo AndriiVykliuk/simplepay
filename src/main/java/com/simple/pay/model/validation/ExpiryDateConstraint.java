@@ -9,8 +9,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import static com.simple.pay.model.validation.ExpiryDateValidator.EXPIRY_REGEX;
+
 @NotNull
-@Pattern(regexp = "[0-9]{4}", message = "The expiry should be 4 digits mmYY")
+@Pattern(regexp = EXPIRY_REGEX, message = "The expiry should be 4 digits mmYY")
 @Constraint(validatedBy = ExpiryDateValidator.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

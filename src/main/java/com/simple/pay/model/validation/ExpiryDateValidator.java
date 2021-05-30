@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 public class ExpiryDateValidator implements ConstraintValidator<ExpiryDateConstraint, String> {
 
+    public static final String EXPIRY_REGEX = "^(1[0-2]|0[1-9])([0-9]{2})$";
+
     @Override
     public void initialize(ExpiryDateConstraint constraintAnnotation) {
 
@@ -14,7 +16,7 @@ public class ExpiryDateValidator implements ConstraintValidator<ExpiryDateConstr
     @Override
     public boolean isValid(String expiry, ConstraintValidatorContext cvc) {
         // this check has been processed and error created already.
-        if (!expiry.matches("[0-9]{4}")) {
+        if (!expiry.matches(EXPIRY_REGEX)) {
             return true;
         }
         int year = Integer.parseInt("20" + expiry.substring(2));
