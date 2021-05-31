@@ -15,7 +15,7 @@ public class PANValidator implements ConstraintValidator<PANConstraint, String> 
 
     @Override
     public boolean isValid(String field, ConstraintValidatorContext cvc) {
-        return checkLuhn(field);
+        return field != null && checkLuhn(field);
     }
 
     /**

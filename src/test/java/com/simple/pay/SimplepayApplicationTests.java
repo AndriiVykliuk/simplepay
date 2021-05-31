@@ -8,6 +8,7 @@ class SimplepayApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//TODO: add functional tests
 	}
 
 }

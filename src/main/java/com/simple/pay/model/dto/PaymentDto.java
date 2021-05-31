@@ -27,9 +27,11 @@ public class PaymentDto {
     @CurrencyConstraint
     private String currency;
 
+    @NotNull
     @Valid
     private CardHolder cardHolder;
 
+    @NotNull
     @Valid
     private Card card;
 }

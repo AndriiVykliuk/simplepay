@@ -19,7 +19,7 @@ public class ExpiryDateValidator implements ConstraintValidator<ExpiryDateConstr
     @Override
     public boolean isValid(String expiry, ConstraintValidatorContext cvc) {
         // this check has been processed and error created already.
-        if (!expiry.matches(EXPIRY_REGEX)) {
+        if (expiry == null || !expiry.matches(EXPIRY_REGEX)) {
             return true;
         }
         int year = Integer.parseInt("20" + expiry.substring(2));
